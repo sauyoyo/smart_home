@@ -35,19 +35,19 @@
       @foreach ($products as $product)
         <tr>
             <th class="text-center">{{ $products->id }}</th>
+            <th>{{ $product->image }}</th>
             <th>{{ $product->name }}</th>
+            <th>{{ $product->brand }}</th>
             <th>{{ $product->description }}</th>
+            <th>{{ $product->price }}</th>
+            <th>{{ $product->qty }}</th>
             <th class="text-center">
                 @if ($product->status == config('custom.product.status.hide'))
                     <button class="btn btn-warning">{{ trans('message.config.hide') }}</button>
                 @else
                 <button class="btn btn-primary">{{ trans('message.config.show') }}</button>
                 @endif
-            </th> 
-            <th>{{ $product->image }}</th>
-            <th>{{ $product->qty }}</th>
-            <th>{{ $product->price }}</th>
-            <th>{{ $product->brand }}</th>
+            </th>  
             <th>
                 <a href = "{{ route('product.edit', ['id' => $product->id]) }}">
                     <i class="fas fa-edit"></i>

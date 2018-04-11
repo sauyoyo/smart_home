@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //Delete media
+    //Delete product
     $(document).on('click', '.delProduct', function () {
         var id = $(this).data('id');
         var selector = $(this);

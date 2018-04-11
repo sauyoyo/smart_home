@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('sites.index');
+});
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 {

@@ -17,6 +17,7 @@ class Media extends Migration
             $table->increments('id');
             $table->string('path', 191);
             $table->string('description', 191);
+            $table->integer('status');
             $table->integer('type');
             $table->timestamps();
         });

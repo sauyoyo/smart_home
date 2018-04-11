@@ -32,7 +32,7 @@
       @foreach ($media as $media)
         <tr>
             <th class="text-center">{{ $media->id }}</th>
-            <th>{{ $media->file }}</th>
+            <th><img src="{{$media->path}}" class="img-responsive media-file"></th>
             <th>{{ $media->description }}</th>
             <th class="text-center">
                 @if ($media->status == config('custom.media.status.hide'))
@@ -68,6 +68,6 @@
   @endif
 </div>
 @endsection
-<!-- @section('script')
-  <script src="{{ asset('js/admin/post.js') }}"></script>
-@endsection -->
+@section('script')
+  <script src="{{ asset('js/admin/media.js') }}"></script>
+@endsection
