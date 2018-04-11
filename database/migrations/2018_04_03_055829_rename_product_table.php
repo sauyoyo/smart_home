@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RenameFeatureTableToFeaturesTable extends Migration
+class RenameProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class RenameFeatureTableToFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::rename('feature', 'features');
+        Schema::rename('prpducts', 'products');
     }
 
     /**
@@ -23,6 +23,6 @@ class RenameFeatureTableToFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::rename('features', 'feature');
+        Schema::rename('products', 'prpducts');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 use App\Contracts\ContactRepository;
-use App\Model\Contact;
+use App\Models\Contact;
 use App\Repositories\AbstractRepositoryEloquent;
 
 class ContactRepositoryEloquent extends AbstractRepositoryEloquent implements ContactRepository

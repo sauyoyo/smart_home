@@ -18,6 +18,7 @@ class Brands extends Migration
             $table->string('name',191);
             // $table->string('name',191);
             $table->string('description',191);
+            $table->integer('media_id')->unsigned();
             $table->timestamps();
         });
     }

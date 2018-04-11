@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 use App\Contracts\ProductRepository;
-use App\Model\Product;
+use App\Models\Product;
 use App\Repositories\AbstractRepositoryEloquent;
 
 class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements ProductRepository

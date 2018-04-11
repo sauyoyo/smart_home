@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 use App\Contracts\FeatureRepository;
-use App\Model\Feature;
+use App\Models\Feature;
 use App\Repositories\AbstractRepositoryEloquent;
 
 class FeatureRepositoryEloquent extends AbstractRepositoryEloquent implements FeatureRepository

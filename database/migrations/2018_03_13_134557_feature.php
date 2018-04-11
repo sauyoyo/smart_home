@@ -16,6 +16,7 @@ class Feature extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',191);
+            $table->integer('media_id')->unsigned();
             $table->timestamps();
         });
     }

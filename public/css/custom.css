@@ -1,0 +1,79 @@
+.header-custom {
+    margin:10px;
+}
+
+table thead {
+    background-color: #ffc107!important;
+}
+
+table .avatar-user {
+    width: 50px !important;
+    height: 50px !important;
+}
+table .media-file {
+    width: 250px !important;
+    height: 200px !important;
+}
+table .user-column {
+    width: 50px !important;
+    height: 50px !important;
+}
+.select2-container {
+    width: 100% !important;
+}
+
+
+ul.pagination li a {
+    color: black;
+    padding: 8px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 4px;
+}
+
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    padding: 8px 8px;
+    margin: 4px;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+ul.pagination li.active span{
+    /*background-color: #4CAF50;*/
+    background-color: #687282;
+    padding: 8px 8px;
+    margin: 4px;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+/*ul.pagination li a:hover:not(.active) {background-color: #ddd;}*/
+ul.pagination li a:hover {background-color: #999999;}
+
+ul.pagination li.disabled span{
+    /*background-color: #cccccc;*/
+    color: #ddd;
+    padding: 8px 8px;
+    border: 1px solid #ddd;
+    margin: 4px;
+}
+
+.admin-schedule .room {
+    border: 1px solid rgba(0,0,0,.125);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-radius: .25rem;
+}
+.admin-schedule .room-action {
+    padding-top: 80px;
+}
+
+.admin-schedule .room-action .new-room {
+    color: #007bff;
+}
+
+.admin-schedule .room-action .del-room {
+    color: #d9534f;
+}

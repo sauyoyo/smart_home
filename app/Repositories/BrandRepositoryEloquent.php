@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 use App\Contracts\BrandRepository;
-use App\Model\Brand;
+use App\Models\Brand;
 use App\Repositories\AbstractRepositoryEloquent;
 
 class BrandRepositoryEloquent extends AbstractRepositoryEloquent implements BrandRepository

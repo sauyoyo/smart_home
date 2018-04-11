@@ -1,23 +1,24 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-     use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    
     protected $fillable = [
-        'path', 
-        'description', 
-        'type'
-
+        'path',
+        'description',
+        'status',
+        'type',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 
 }

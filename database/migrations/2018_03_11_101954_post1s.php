@@ -22,6 +22,7 @@ class Post1s extends Migration
             $table->integer('media_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('type');
+            $table->integer('brand_id')->unsigned();
             $table->timestamps();
         });
     }

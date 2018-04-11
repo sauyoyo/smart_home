@@ -1,4 +1,4 @@
--<?php
+<?php
 
 namespace App\Providers;
 
@@ -69,10 +69,13 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach (static::$repositories as $repository) {
-            $this->app->singleton(
+        foreach (static::$repositories as $repository) 
+            {
+            $this->app->singleton
+            (
                 $repository[0],
                 $repository[1]
             );
+            }
     }
 }
