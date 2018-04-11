@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 use App\Contracts\BookingRepository;
-use App\Model\Booking;
+use App\Models\Booking;
 use App\Repositories\AbstractRepositoryEloquent;
 
 class BookingRepositoryEloquent extends AbstractRepositoryEloquent implements BookingrRepository

@@ -20,4 +20,8 @@ class Contact extends Model
         'content',
         'media_id'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
