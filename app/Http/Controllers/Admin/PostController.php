@@ -5,21 +5,18 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\PostRepository;
-use App\Contracts\TypeRepository;
 use App\Contracts\MediaRepository;
 use App\Http\Requests\PostRequest;
 use Auth;
 
 class PostController extends Controller
 {
-    protected $post, $type, $media;
+    protected $post, $media;
     public function __construct(
         PostRepository $post,
-        TypeRepository $type,
         MediaRepository $media)
     {
         $this->post = $post;
-        $this->type = $type;
         $this->media = $media;
     }
     /**
@@ -29,7 +26,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = $this->post->paginate(5, []);
+        $posts = $this->post->paginate(5, ['media']);
+        
         return view('admin.post.index', compact('posts'));
     }
 
@@ -116,7 +114,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         if ($request->ajax()) {
             if ($this->post->delete($id)) {

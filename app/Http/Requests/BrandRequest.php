@@ -4,16 +4,16 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MediaRequest extends FormRequest
+class BrandRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()//xác thực
+    public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,20 +24,18 @@ class MediaRequest extends FormRequest
     public function rules()
     {
         return [
-            'path' => 'required|max:255',
+            'name' => 'required|max:255',
             'description' => 'required|max:255',
-            'status' => 'required|numeric',
-            'type' => 'numeric'
-            
+            'media_id' => 'required|numeric'
         ];
-        if ($this->isMethod('PUT')) {
+
+        if($this->isMethod('PUT'))
+        {
             $arr = [
-                'path' => 'max:255' ,
+                'name' => 'required|max:255',
                 'description' => 'required|max:255',
-                'status' => 'required|numeric',
-                'type' => 'numeric'
+                'media_id' => 'numeric'
             ];
-            
             return $arr;
         }
     }

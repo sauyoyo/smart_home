@@ -12,7 +12,7 @@ $(document).ready(function() {
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: '/admin/post/delete/' + id,
+                    url: '/admin/rating/delete/' + id,
                     type: 'GET',
                     success: function (res) {
                         swal(

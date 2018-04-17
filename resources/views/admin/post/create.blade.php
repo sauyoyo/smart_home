@@ -25,6 +25,19 @@
     <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
+            <label for="exampleInputEmail1">{{ trans('message.column.post_image') }}</label>
+            <select name="media_id" class="form-control">
+            @foreach ($media as $m)
+                <option value="{{ $m->id }}">{{ $m->description }}</option>
+            @endforeach 
+            </select>
+            @if ($errors->has('media_id'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('media_id') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="form-group">
             <label for="exampleInputEmail1">{{ trans('message.column.title') }}</label>
             <input class="form-control" type="text" name="title" value="{{ old('title') }}" placeholder="Title" required>
             @if ($errors->has('title'))
@@ -48,19 +61,6 @@
             @if ($errors->has('content'))
                 <span class="help-block">
                         <strong>{{ $errors->first('content') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">{{ trans('message.column.banner') }}</label>
-            <select name="media_id" class="form-control">
-            @foreach ($media as $m)
-                <option value="{{ $m->id }}">{{ $m->description }}</option>
-            @endforeach 
-            </select>
-            @if ($errors->has('media_id'))
-                <span class="help-block">
-                        <strong>{{ $errors->first('media_id') }}</strong>
                 </span>
             @endif
         </div>

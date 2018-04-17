@@ -20,7 +20,7 @@
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th class="text-center">{{ trans('message.column.image') }}</th>
+            <th class="text-center">{{ trans('message.column.product_image') }}</th>
             <th class="text-center ">{{ trans('message.column.name') }}</th>
             <th class="text-center">{{ trans('message.column.brand') }}</th>
             <th class="text-center ">{{ trans('message.column.description') }}</th>
@@ -34,10 +34,10 @@
     @if (isset($products))
       @foreach ($products as $product)
         <tr>
-            <th class="text-center">{{ $products->id }}</th>
-            <th>{{ $product->image }}</th>
+            <th class="text-center">{{ $product->id }}</th>
+            <th><img src="{{$product->media->path}}" class="img-responsive media-file"></th>
             <th>{{ $product->name }}</th>
-            <th>{{ $product->brand }}</th>
+            <th>{{ $product->brand->name }}</th>
             <th>{{ $product->description }}</th>
             <th>{{ $product->price }}</th>
             <th>{{ $product->qty }}</th>
@@ -61,8 +61,8 @@
     @endif
     </tbody>
   </table>
-  @if (isset($posts)) 
-      {{ $posts->links() }}
+  @if (isset($products)) 
+      {{ $products->links() }}
   @endif
 </div>
 @endsection

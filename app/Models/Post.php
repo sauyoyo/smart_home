@@ -12,12 +12,15 @@ class Post extends Model
         'status',
         'media_id',
         'user_id',
-        'type',
-        'brand_id'
+        'type'
     ];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function media()
+    {
+       return $this->belongsTo(Media::class);
     }
 
 }

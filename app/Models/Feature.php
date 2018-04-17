@@ -14,8 +14,7 @@ class Feature extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'media_id'
+        'name'
     ];
 
 }

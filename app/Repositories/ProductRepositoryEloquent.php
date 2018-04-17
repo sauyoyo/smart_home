@@ -10,4 +10,5 @@ class ProductRepositoryEloquent extends AbstractRepositoryEloquent implements Pr
     {
         return new Product;//khai báo tên bảng
     }
+
 }

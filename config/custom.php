@@ -29,13 +29,6 @@ return [
             'movie' => 1,
         ],
     ],
-    'brands' => [
-        'brand' => [
-            'samsung' => 0,
-            'siemens' => 1,
-            'theben'  => 2
-        ],
-    ],
     'product' => [
         'status' => [
             'show' => 0,
