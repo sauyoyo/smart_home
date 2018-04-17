@@ -32,6 +32,12 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ route('brand.index') }}">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">{{ trans('message.title.manage_brands') }}</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{ route('media.index') }}">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">{{ trans('message.title.manage_media') }}</span>

@@ -16,7 +16,6 @@ class Brands extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',191);
-            // $table->string('name',191);
             $table->string('description',191);
             $table->integer('media_id')->unsigned();
             $table->timestamps();

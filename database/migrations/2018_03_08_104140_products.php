@@ -19,12 +19,8 @@ class Products extends Migration
             $table->text('description');
             $table->integer('status');
             $table->integer('price');
-            $table->integer('type_id')->unsigned();
             $table->integer('qty');
             $table->integer('brand_id')->unsigned();
-            $table->integer('promotion_id')->unsigned();
-            $table->integer('booking_id')->unsigned();
-            $table->integer('rating_id')->unsigned();
             $table->integer('media_id')->unsigned();
             $table->timestamps();
         });

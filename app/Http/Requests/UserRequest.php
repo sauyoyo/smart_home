@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             $arr = [
                 'name' => 'required|max:255' ,
                 'email' => 'required|email|unique:users,email,'.$request->id,
-                'address' => 'string|string|max:255',
+                'address' => 'string|max:255',
                 'gender' => 'required|numeric',
                 'role' => 'required|numeric',
             ];

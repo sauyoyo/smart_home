@@ -14,11 +14,20 @@ class Media extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(Product::class);
     }
     public function brand()
     {
         return $this->belongsTo(Brand::class);
     }
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+    public function getpathAttribute($value)
+    {
+        return asset(config('custom.defaultMedia') . $value); 
+    }
+    
 
 }

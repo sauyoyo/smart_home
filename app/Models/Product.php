@@ -11,12 +11,8 @@ class Product extends Model
         'description', 
         'status',
         'price',
-        'type_id',
         'qty',
         'brand_id',
-        'promption_id',
-        'booking_id',
-        'rating_id',
         'media_id'
 
     ];
@@ -32,9 +28,9 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
-    public function medias()
+    public function media()
     {
-        return $this->hasMany(Media::class);
+        return $this->belongsTo(Media::class);
     }
     public function promotion()
     {

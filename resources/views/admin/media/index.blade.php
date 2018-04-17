@@ -63,8 +63,8 @@
     @endif
     </tbody>
   </table>
-  @if (isset($posts)) 
-      {{ $posts->links() }}
+  @if (isset($medias)) 
+      {{ $medias->links() }}
   @endif
 </div>
 @endsection

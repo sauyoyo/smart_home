@@ -15,7 +15,7 @@ class Booking extends Model
      */
     protected $fillable = [
         'product_id', 
-        'name_cus', 
+        'name_user', 
         'phone',
         'email',
         'address',

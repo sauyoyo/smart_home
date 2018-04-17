@@ -27,13 +27,24 @@ class ProductRequest extends FormRequest
         [
             'name' => 'required|max:255',
             'description' => 'required',
-            'status' => 'required|numeric',
-            'image' => 'required|max:255',
             'qty' => 'required|max:255',
             'price' => 'required|max:255',
-            'brand' => 'required'
-            
-        ];
+            'brand_id' => 'required|numeric',
+            'status' => 'required|numeric',
+            'media_id' => 'required|numeric'
+        ];  
+        if($this->isMethod('PUT'))
+        {
+            $arr = [
+                'name' => 'required|max:255',
+                'description' => 'required',
+                'qty' => 'required|max:255',
+                'price' => 'required|max:255',
+                'brand_id' => 'required|numeric',
+                'status' => 'required|numeric',
+                'media_id' => 'numeric',
+            ];
+        }
         return $arr;
     }
 }

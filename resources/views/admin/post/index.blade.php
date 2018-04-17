@@ -20,8 +20,10 @@
     <thead>
         <tr>
             <th class="text-center">#</th>
+            <th class="text-center ">{{ trans('message.column.image') }}</th>
             <th class="text-center ">{{ trans('message.column.title') }}</th>
             <th class="text-center ">{{ trans('message.column.description') }}</th>
+            <th class="text-center ">{{ trans('message.column.content') }}</th>
             <th class="text-center">{{ trans('message.column.status') }}</th>
             <th class="text-center">{{ trans('message.column.type') }}</th>  
             <th class="text-center"></th>
@@ -32,8 +34,10 @@
       @foreach ($posts as $post)
         <tr>
             <th class="text-center">{{ $post->id }}</th>
+            <th class="text-center"><img src="{{$post->media->path}}" alt="img-responsive media-file"></th>
             <th>{{ $post->title }}</th>
             <th>{{ $post->description }}</th>
+            <th>{{ $post->content }}</th>
             <th class="text-center">
                 @if ($post->status == config('custom.post.status.hide'))
                     <button class="btn btn-warning">{{ trans('message.config.hide') }}</button>

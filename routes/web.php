@@ -33,5 +33,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 
 	Route::resource('media', 'MediaController');
 	Route::get('/media/delete/{id}', 'MediaController@destroy');
+
+	Route::resource('brand', 'BrandController');
+	Route::get('/brand/delete/{id}', 'BrandController@destroy');
+
+	Route::resource('feature','FeatureController');
+	Route::get('/feature/delete/{id}', 'FeatureController@destroy');
+
+	Route::resource('rating','RatingController');
+	Route::get('/rating/delete/{id}', 'RatingController@destroy');
 });
 

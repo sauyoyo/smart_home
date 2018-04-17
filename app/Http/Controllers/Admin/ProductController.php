@@ -6,39 +6,28 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\ProductRepository;
 use App\Contracts\MediaRepository;
-// use App\Contracts\BrandRepository;
-// use App\Contracts\PromotionRepository;
-// use App\Contracts\RatingRepository;
-// use App\Contracts\BookingRepository;
+use App\Contracts\BrandRepository;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
-    protected $product, $media /*, $brand, $promotion, $rating,$booking*/;
+    protected $product, $media , $brand;
     public function __construct(
         ProductRepository $product,
-        MediaRepository $media
-        // BrandRepository $brand,
-        // PromotionRepository $promotion,
-        // RatingRepository $rating,
-        // BookingRepository $booking
+        MediaRepository $media,
+        BrandRepository $brand
         )
     {
         $this->product = $product;
         $this->media = $media;
-        // $this->brand = $brand;
-        // $this->promotion = $promotion;
-        // $this->rating = $rating;
-        // $this->booking = $booking;
+        $this->brand = $brand;
+
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $products = $this->product->paginate(5, []);
+        $products = $this->product->paginate(5, ['media']);
+        
         return view('admin.product.index', compact('products'));
     }
 
@@ -49,9 +38,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // $media = $this->media->getMediaByTypeProduct([]);
-
-        return view('admin.product.create', compact('media'));
+        $media = $this->media->getMediaByTypeProduct([]);
+        $brand =$this->brand->all();
+        
+        return view('admin.product.create', compact('brand','media'));
     }
 
     /**
@@ -60,20 +50,19 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(ProductRequest $request)
     {
         $data = $request->all();
 
         $product = $this->product->create($data);
-        // dd($user);
-        
+
         if ($product) 
         {
-            return redirect()->route('product.create')->with('success', trans('The product has been successfully creted'));
+            return redirect()->route('product.create')->with('success', trans('The product has been successfully created'));
         }
         else
         {
-            return redirect()->route('product.crete')->with('error', trans('The product has been created failed'));
+            return redirect()->route('product.create')->with('error', trans('The product has been created failed'));
         }
     }
 
@@ -96,9 +85,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->user->find($id, []);
-
-        return view('admin.user.edit', compact('user'));
+        $product = $this->product->find($id, ['media']);
+        $media = $this->media->getMediaByTypeProduct([]);
+        $brand = $this->brand->all();
+        
+        return view('admin.product.edit', compact('product','media', 'brand'));
     }
 
     /**
@@ -128,8 +119,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->ajax())
+        {
+            if ($this->product->delete($id)) 
+            {
+                 return response(['status' => trans('messages.success')]);
+            }
+            return response(['status' => trans('messages.failed')]);
+        }
     }
 }

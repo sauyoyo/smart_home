@@ -15,7 +15,6 @@ class Bookings extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
             $table->string('name_user',191);
             $table->integer('phone');
             $table->string('email', 191)->unique();

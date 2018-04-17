@@ -20,9 +20,7 @@ class Promotion extends Model
         'start',
         'end',
         'sale',
-        'status',
-        'product_id',
-        'media_id'
+        'status'
 
     ];
     public function products()

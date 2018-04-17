@@ -22,8 +22,6 @@ class Promotions extends Migration
             $table->date('end');
             $table->integer('sale');
             $table->integer('status');
-            $table->integer('product_id')->unsigned();
-            $table->integer('media_id')->unsigned();
             $table->timestamps();
         });
     }
